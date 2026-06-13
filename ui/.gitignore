@@ -10,6 +10,8 @@ lerna-debug.log*
 node_modules
 dist
 dist-ssr
+.env
+supabase/supabase/.env
 *.local
 
 # Editor directories and files

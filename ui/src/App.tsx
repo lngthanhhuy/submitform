@@ -1,14 +1,18 @@
 import { Route, Routes } from 'react-router-dom';
-import CareerForm from './pages/CareerForm';
+import { ToastContainer } from 'react-toastify';
+import CareerPage from './pages/CareerPage';
 
 function App() {
   return (
-    <Routes>
-      <Route
-        path='/careerform'
-        element={<CareerForm />}
-      />
-    </Routes>
+    <>
+      <ToastContainer theme="colored"/>
+      <Routes>
+        <Route
+          path='/'
+          element={<CareerPage />}
+        />
+      </Routes>
+    </>
   );
 }
 
