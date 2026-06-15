@@ -5,6 +5,8 @@ Một hệ thống form tuyển dụng full-stack được xây dựng bằng Re
 gửi hồ sơ. Supabase Edge Function sẽ xác thực dữ liệu, lưu hồ sơ và gửi thông
 tin đến HR qua Resend.
 
+![Sơ đồ kiến trúc hệ thống Careers Application Form](docs/images/system-architecture.png)
+
 ## Mục Lục
 
 - [Tính năng](#tính-năng)
@@ -228,18 +230,8 @@ submitform/
 
 ## Kiến Trúc Hệ Thống
 
-```mermaid
-flowchart LR
-    Candidate["Ứng viên"] --> React["React form"]
-    React --> Turnstile["Cloudflare Turnstile"]
-    React --> Edge["Edge Function submit-application"]
-    Edge --> Turnstile
-    Edge --> Database["Supabase PostgreSQL"]
-    Edge --> Storage["Private CV Storage"]
-    Edge --> Resend["Resend API"]
-    Resend --> HR["Email HR"]
-    Edge --> React
-```
+Sơ đồ mô tả luồng từ ứng viên và React frontend qua Supabase Edge Function,
+database, private Storage, Cloudflare Turnstile, Resend và hộp thư HR.
 
 Luồng gửi hồ sơ:
 
