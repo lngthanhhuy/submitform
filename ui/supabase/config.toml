@@ -124,6 +124,15 @@ file_size_limit = "50MiB"
 # allowed_mime_types = ["image/png", "image/jpeg"]
 # objects_path = "./images"
 
+[storage.buckets."cv ung tuyen"]
+public = false
+file_size_limit = "5MiB"
+allowed_mime_types = [
+  "application/pdf",
+  "application/msword",
+  "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+]
+
 # Allow connections via S3 compatible clients
 [storage.s3_protocol]
 enabled = true
@@ -422,3 +431,9 @@ entrypoint = "./functions/resend/index.ts"
 # Specifies static files to be bundled with the function. Supports glob patterns.
 # For example, if you want to serve static HTML pages in your function:
 # static_files = [ "./functions/resend/*.html" ]
+
+[functions.submit-application]
+enabled = true
+verify_jwt = false
+import_map = "./functions/submit-application/deno.json"
+entrypoint = "./functions/submit-application/index.ts"
